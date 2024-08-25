@@ -13,6 +13,7 @@ export default function Component() {
   let [error, setError] = useState(null); // To store error messages
   let nav = useNavigate();
 
+  axios.defaults.withCredentials = true;
   async function handleBlog(e) {
     e.preventDefault();
 

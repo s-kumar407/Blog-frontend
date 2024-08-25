@@ -15,6 +15,7 @@ export default function Component() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  axios.defaults.withCredentials = true;
   const nav = useNavigate();
 
   // Fetch user's blog posts
@@ -33,7 +34,7 @@ export default function Component() {
       );
       if(result)
       {
-        console.log(result);
+       
         setBlogs(result.data);
         setLoading(false);
       }

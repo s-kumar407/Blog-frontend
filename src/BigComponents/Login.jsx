@@ -11,6 +11,7 @@ export default function Component() {
   let [password, setPassword] = useState("");
   let [emailError, setEmailError] = useState("");
   let [passwordError, setPasswordError] = useState("");
+  axios.defaults.withCredentials = true;
   const nav = useNavigate();
 
   useEffect(() => {

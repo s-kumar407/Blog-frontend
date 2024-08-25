@@ -12,6 +12,7 @@ export default function UpdateBlogPost() {
   const [file, setFile] = useState(null);
   const [errors, setErrors] = useState({});
   const [blogID, setBlogID] = useState();
+  axios.defaults.withCredentials = true;
   const params = useParams();
   const nav = useNavigate();
 

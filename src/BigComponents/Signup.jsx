@@ -13,6 +13,7 @@ export default function Component() {
   const [password, setPassword] = useState("");
   const [imageFile, setImageFile] = useState(null);
   const [errors, setErrors] = useState({});
+  axios.defaults.withCredentials = true;
   const nav = useNavigate();
 
   useEffect(() => {

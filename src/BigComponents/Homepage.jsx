@@ -18,6 +18,7 @@ export default function Component() {
   let [userNames, setUserNames] = useState({}); // To store user names
   let [searchKey, setSearchKey] = useState("");
   let navigate = useNavigate();
+  axios.defaults.withCredentials = true;
   async function getBlogs() {
     try {
       let result = await axios.get(
