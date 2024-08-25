@@ -12,12 +12,12 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 export default function Component() {
   let [blogs, setBlogs] = useState([]);
   let [userNames, setUserNames] = useState({}); // To store user names
   let [searchKey, setSearchKey] = useState("");
-
+  let navigate = useNavigate();
   async function getBlogs() {
     try {
       let result = await axios.get(
@@ -57,28 +57,30 @@ export default function Component() {
     const decoded = jwtDecode(token);
     const currentTime = Date.now() / 1000; // Current time in seconds
 
-    return decoded.exp < currentTime; // Check if the token is expired
+    return decoded.exp < currentTime; 
   }
 
   useEffect(() => {
     try {
-      let token = JSON.parse(localStorage.getItem("user")).auth;
-      if(token)
-      {
-        token = token.split(' ')[1];
+      let user = JSON.parse(localStorage.getItem("user"));
+      if (user && user.auth) {
+        let token = user.auth.split(' ')[1]; 
         if (isTokenExpired(token)) {
           localStorage.removeItem("user");
-          getBlogs();
+          navigate("/login");
+        } else {
+        
+          getBlogs(); 
         }
+      } else {
+      
+        navigate("/");
       }
     } catch (error) {
       console.log(error);
-      getBlogs();
+      navigate("/");
     }
-  
-   
-   
-  }, []);
+  }, [navigate]);
 
   async function handleSearch() {
     try {
