@@ -68,14 +68,16 @@ export default function Component() {
         token = token.split(' ')[1];
         if (isTokenExpired(token)) {
           localStorage.removeItem("user");
+          getBlogs();
         }
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
+      getBlogs();
     }
   
    
-    getBlogs();
+   
   }, []);
 
   async function handleSearch() {
