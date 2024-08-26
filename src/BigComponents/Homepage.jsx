@@ -58,23 +58,19 @@ export default function Component() {
     const decoded = jwtDecode(token);
     const currentTime = Date.now() / 1000; // Current time in seconds
 
-    return decoded.exp < currentTime; 
+    return decoded.exp < currentTime;
   }
 
   useEffect(() => {
     try {
       let user = JSON.parse(localStorage.getItem("user"));
       if (user && user.auth) {
-        let token = user.auth.split(' ')[1]; 
+        let token = user.auth.split(" ")[1];
         if (isTokenExpired(token)) {
           localStorage.removeItem("user");
           navigate("/login");
-        } else {
-        
-          getBlogs(); 
         }
       } else {
-      
         navigate("/");
       }
     } catch (error) {
@@ -82,6 +78,9 @@ export default function Component() {
       navigate("/");
     }
   }, [navigate]);
+  useEffect(() => {
+    getBlogs();
+  }, []);
 
   async function handleSearch() {
     try {
