@@ -89,13 +89,13 @@ export default function Component() {
 
           {/* Mobile Navigation - Hamburger Menu */}
           <Sheet >
-            <SheetTrigger asChild aria-describedby="">
+            <SheetTrigger asChild aria-describedby="" >
               <Button variant="outline" size="icon" className="md:hidden">
                 <MenuIcon className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-64">
+            <SheetContent side="right" className="w-64" >
               <div className="grid gap-4 p-4">
                 {auth ? (
                   <>
