@@ -20,7 +20,7 @@ export default function UpdateBlogPost() {
   async function handleBlog() {
     try {
       const result = await axios.get(
-        `${import.meta.env.VITE_URI}:${import.meta.env.VITE_PORT}/updateBlog/${params.blogId}`,
+        `${import.meta.env.VITE_URI}/updateBlog/${params.blogId}`,
         {
           headers: {
             Authorization: JSON.parse(localStorage.getItem("user")).auth,
@@ -75,7 +75,7 @@ export default function UpdateBlogPost() {
       );
 
       const blog = await axios.put(
-        `${import.meta.env.VITE_URI}:${import.meta.env.VITE_PORT}/updateBlog/${blogID}`,
+        `${import.meta.env.VITE_URI}/updateBlog/${blogID}`,
         formData,
         {
           headers: {

@@ -56,7 +56,7 @@ export default function Component() {
                 >
                   <div className="rounded-full h-[50px] w-[50px] overflow-hidden">
                     <img
-                      src={`${import.meta.env.VITE_URI}:${import.meta.env.VITE_PORT}/usersProfilepics/${auth.userData.imageName}` || ""}
+                      src={`${import.meta.env.VITE_URI}/usersProfilepics/${auth.userData.imageName}` || ""}
                       alt="profile pic"
                       className="w-full h-full object-cover"
                     />

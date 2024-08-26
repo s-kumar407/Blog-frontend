@@ -104,9 +104,7 @@ export default function Component() {
               <Card key={element._id} className="h-full">
                 <CardContent className="p-0">
                   <img
-                    src={`${import.meta.env.VITE_URI}:${
-                      import.meta.env.VITE_PORT
-                    }/blogPics/${element.blogImageName}`}
+                    src={`${import.meta.env.VITE_URI}/blogPics/${element.blogImageName}`}
                     width={400}
                     height={225}
                     alt={element.title}

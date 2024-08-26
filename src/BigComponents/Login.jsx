@@ -56,7 +56,7 @@ export default function Component() {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_URI}:${import.meta.env.VITE_PORT}/login`,
+        `${import.meta.env.VITE_URI}/login`,
         { email, password },
         {
           headers: {

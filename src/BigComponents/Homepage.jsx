@@ -22,7 +22,7 @@ export default function Component() {
   async function getBlogs() {
     try {
       let result = await axios.get(
-        `${import.meta.env.VITE_URI}:${import.meta.env.VITE_PORT}/bloglist`,
+        `${import.meta.env.VITE_URI}/bloglist`,
         {}
       );
 
@@ -44,7 +44,7 @@ export default function Component() {
     let result;
     try {
       result = await axios.get(
-        `${import.meta.env.VITE_URI}:${import.meta.env.VITE_PORT}/user/${id}`,
+        `${import.meta.env.VITE_URI}/user/${id}`,
         {}
       );
     } catch (error) {
@@ -88,9 +88,7 @@ export default function Component() {
     try {
       if (searchKey) {
         let result = await axios.get(
-          `${import.meta.env.VITE_URI}:${
-            import.meta.env.VITE_PORT
-          }/search/${searchKey}`,
+          `${import.meta.env.VITE_URI}/search/${searchKey}`,
           {}
         );
         if (result.data) {
@@ -186,9 +184,7 @@ export default function Component() {
                     <Card className="h-full">
                       <CardContent className="p-0">
                         <img
-                          src={`${import.meta.env.VITE_URI}:${
-                            import.meta.env.VITE_PORT
-                          }/blogPics/${element.blogImageName}`}
+                          src={`${import.meta.env.VITE_URI}/blogPics/${element.blogImageName}`}
                           alt="Blog Post Image"
                           className="object-cover aspect-video w-full h-full"
                         />

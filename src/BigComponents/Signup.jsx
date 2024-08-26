@@ -56,7 +56,7 @@ export default function Component() {
     formData.append("profileImage", imageFile);
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_URI}:${import.meta.env.VITE_PORT}/signup`, formData, {
+      const response = await axios.post(`${import.meta.env.VITE_URI}/signup`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

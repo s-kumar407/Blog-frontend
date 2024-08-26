@@ -33,7 +33,7 @@ export default function Component() {
     );
 
     try {
-      let blog = await axios.post(`${import.meta.env.VITE_URI}:${import.meta.env.VITE_PORT}/bloglist`, formData, {
+      let blog = await axios.post(`${import.meta.env.VITE_URI}/bloglist`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: JSON.parse(localStorage.getItem("user")).auth,
