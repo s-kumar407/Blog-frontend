@@ -33,6 +33,7 @@ export default function Component() {
         const userName = await getUser(blog.userID);
         userNamesMap[blog.userID] = userName;
       }
+      console.log("second");
       setUserNames(userNamesMap); // Store user names in state
     } catch (error) {
       console.log(error);
@@ -79,6 +80,7 @@ export default function Component() {
     }
   }, [navigate]);
   useEffect(() => {
+    console.log("first");
     getBlogs();
   }, []);
 
