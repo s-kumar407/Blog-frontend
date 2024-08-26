@@ -1,28 +1,20 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import path from "path"
+import react from "@vitejs/plugin-react"
+import { defineConfig } from "vite"
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  build: {
-    rollupOptions: {
-      output: {
-        entryFileNames: 'assets/[name].js',
-        chunkFileNames: 'assets/[name].js',
-        assetFileNames: 'assets/[name].[ext]'
-      }
-    }
-  },
-  server: {
-    open: true,
-    proxy: {
-      // Add proxy configurations here if you have API routes
-    }
-  },
-  resolve: {
-    alias: {
-      '@': '/src',
-    },
-  }
-});
-
+ plugins: [react()],
+ build: {
+  outDir: 'dist'
+},
+server: {
+  open: true
+},
+ resolve: {
+   alias: {
+     "@": path.resolve(__dirname, "./src"),
+   },
+ },
+})
 
