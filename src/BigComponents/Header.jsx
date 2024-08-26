@@ -88,8 +88,8 @@ export default function Component() {
           </nav>
 
           {/* Mobile Navigation - Hamburger Menu */}
-          <Sheet>
-            <SheetTrigger asChild>
+          <Sheet >
+            <SheetTrigger asChild aria-describedby="">
               <Button variant="outline" size="icon" className="md:hidden">
                 <MenuIcon className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation</span>
